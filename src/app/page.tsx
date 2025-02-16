@@ -5,6 +5,7 @@ import MapWrapper from '@/components/MapWrapper';
 import AQTrendChart from '@/components/AQTrendChart';
 import { AirPollutionData } from '@/types/airQuality';
 import EcoFriendlyRoute from '@/components/EcoFriendlyRoute';
+import AQITables from '@/components/AQITables';
 
 export default function Home() {
   const [airQualityData, setAirQualityData] = useState<(AirPollutionData & { cityName: string })[]>([]);
@@ -33,6 +34,7 @@ export default function Home() {
             <MapWrapper records={airQualityData} />
             <AQTrendChart />
             <EcoFriendlyRoute />
+            <AQITables />
           </>
         )}
       </div>
