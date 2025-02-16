@@ -4,6 +4,7 @@ import { getAirQualityData } from '@/services/airQuality';
 import MapWrapper from '@/components/MapWrapper';
 import AQTrendChart from '@/components/AQTrendChart';
 import { AirPollutionData } from '@/types/airQuality';
+import EcoFriendlyRoute from '@/components/EcoFriendlyRoute';
 
 export default function Home() {
   const [airQualityData, setAirQualityData] = useState<(AirPollutionData & { cityName: string })[]>([]);
@@ -31,6 +32,7 @@ export default function Home() {
           <>
             <MapWrapper records={airQualityData} />
             <AQTrendChart />
+            <EcoFriendlyRoute />
           </>
         )}
       </div>
