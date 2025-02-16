@@ -6,8 +6,6 @@ export interface WeatherData {
     pressure: number;
   };
   weather: Array<{
-    id: number;
-    main: string;
     description: string;
     icon: string;
   }>;
@@ -15,4 +13,8 @@ export interface WeatherData {
   wind: {
     speed: number;
   };
+}
+
+export interface WeatherResponse {
+  data: WeatherData;
 }

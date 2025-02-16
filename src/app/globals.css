@@ -21,3 +21,89 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom scrollbar styles */
+/* For WebKit browsers (Chrome, Safari) */
+.w-1\/4::-webkit-scrollbar {
+  width: 8px;
+}
+
+.w-1\/4::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.w-1\/4::-webkit-scrollbar-thumb {
+  background-color: #e5e7eb;
+  border-radius: 20px;
+  border: 2px solid #ffffff;
+}
+
+/* Dark mode */
+.dark .w-1\/4::-webkit-scrollbar-thumb {
+  background-color: #374151;
+  border: 2px solid #1f2937;
+}
+
+/* For Firefox */
+.w-1\/4 {
+  scrollbar-width: thin;
+  scrollbar-color: #e5e7eb transparent;
+}
+
+.dark .w-1\/4 {
+  scrollbar-color: #374151 transparent;
+}
+
+.mapboxgl-ctrl-group::-webkit-scrollbar,
+.maplibregl-ctrl-group::-webkit-scrollbar,
+.map-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.mapboxgl-ctrl-group::-webkit-scrollbar-track,
+.maplibregl-ctrl-group::-webkit-scrollbar-track,
+.map-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mapboxgl-ctrl-group::-webkit-scrollbar-thumb,
+.maplibregl-ctrl-group::-webkit-scrollbar-thumb,
+.map-container::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 20px;
+}
+
+.mapboxgl-ctrl-group::-webkit-scrollbar-thumb:hover,
+.maplibregl-ctrl-group::-webkit-scrollbar-thumb:hover,
+.map-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.8);
+}
+
+/* For Firefox */
+.mapboxgl-ctrl-group,
+.maplibregl-ctrl-group,
+.map-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+@layer utilities {
+  .animation-delay-150 {
+    animation-delay: 150ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-gradient {
+    background: linear-gradient(45deg, #3B82F6, #10B981, #3B82F6);
+    background-size: 200% 200%;
+    animation: gradient 2s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
