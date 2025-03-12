@@ -1,13 +1,18 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
+const genAI = new GoogleGenerativeAI(
+  process.env.NEXT_PUBLIC_GEMINI_API_KEY || ""
+);
 
-export async function getAirQualityInsights(city: string, pollutants: Array<{ id: string; value: string }>) {
-  const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+export async function getAirQualityInsights(
+  city: string,
+  pollutants: Array<{ id: string; value: string }>
+) {
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
   const prompt = `
     Analyze the air quality data for ${city}:
-    ${pollutants.map(p => `${p.id}: ${p.value}`).join('\n')}
+    ${pollutants.map((p) => `${p.id}: ${p.value}`).join("\n")}
 
     Respond in this exact format without any special characters or markdown:
 
@@ -30,9 +35,9 @@ export async function getAirQualityInsights(city: string, pollutants: Array<{ id
   try {
     const result = await model.generateContent(prompt);
     const response = await result.response;
-    return response.text().replace(/\*+/g, '').trim();
+    return response.text().replace(/\*+/g, "").trim();
   } catch (error) {
-    console.error('Error getting AI insights:', error);
-    return 'Unable to generate insights at the moment.';
+    console.error("Error getting AI insights:", error);
+    return "Unable to generate insights at the moment.";
   }
 }
